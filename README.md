@@ -23,10 +23,10 @@ Web-System zur Verwaltung von Kundendaten und Kundenbuchungen der FunEvents GmbH
 
 **Mitglieder**:
 
--
--
--
--
+-**Benedikt Klingenberger**
+- Julian Moosbauer
+- Maximilian Jodlbauer
+- Daniel Ksenofontov
 
 ### Team 3
 
