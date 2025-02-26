@@ -12,10 +12,10 @@ Web-System zur Verwaltung von Kundendaten und Kundenbuchungen der FunEvents GmbH
 
 **Mitglieder**:
 
-- 
--
--
--
+- Hannawald Lukas
+- Fleckenstein Felix
+- Rothenaigner Jakob
+- Boger Waldemar
 
 ### Team 2
 
