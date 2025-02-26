@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBS_FunEvents_Web_2025", "KBS_FunEvents_Web_2025\KBS_FunEvents_Web_2025.csproj", "{FC967EE9-1AD6-4D14-9F13-C4A84796CEDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC967EE9-1AD6-4D14-9F13-C4A84796CEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC967EE9-1AD6-4D14-9F13-C4A84796CEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC967EE9-1AD6-4D14-9F13-C4A84796CEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC967EE9-1AD6-4D14-9F13-C4A84796CEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62CF8FD3-DE8E-42F4-8D34-CCA6569D74FF}
+	EndGlobalSection
+EndGlobal
