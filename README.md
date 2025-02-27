@@ -45,7 +45,7 @@ Web-System zur Verwaltung von Kundendaten und Kundenbuchungen der FunEvents GmbH
 
 **Mitglieder**:
 
--
--
--
+- Johannes
+- Raffael
+- Michael
 -
