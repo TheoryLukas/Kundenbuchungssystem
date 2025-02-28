@@ -15,7 +15,7 @@ namespace KBS_FunEvents_Web_2025.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View("Views/Login/Login.cshtml");
         }
