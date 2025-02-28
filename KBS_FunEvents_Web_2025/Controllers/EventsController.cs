@@ -12,14 +12,27 @@ namespace KBS_FunEvents_Web_2025.Controllers
             _dbContext = dbContext;
         }
 
+        // Alle Events mit mindestens einem freigebenem EveentDaten-Eintrag
+        private List<TblEvent> GetEvents()
+        {
+            _ = _dbContext.TblEvVeranstalters.ToList();
+            _ = _dbContext.TblEvKategories.ToList();
+            
+            List<int> activeEvents = _dbContext.TblEventDatens.ToList()
+                                        .Where(ed => ed.EdFreigegeben == true)
+                                        .DistinctBy(ed => ed.EtEventId)
+                                        .Select(ed => ed.EtEventId).ToList();
+            
+            List<TblEvent> events = _dbContext.TblEvents.ToList()
+                                        .Where(ev => activeEvents.Contains(ev.EtEventId)).ToList();
+
+            return events;
+        }
+
         // GET: EventsController
         public ActionResult Index()
         {
-            List<TblEvVeranstalter> veranstalter = _dbContext.TblEvVeranstalters.ToList();
-            List<TblEvKategorie> kategorien = _dbContext.TblEvKategories.ToList();
-            List<TblEvent> events = _dbContext.TblEvents.ToList();
-            
-            return View("Views/Events/Events.cshtml", events);
+            return View("Views/Events/Events.cshtml", GetEvents());
         }
 
         public ActionResult Details(int eventId)
