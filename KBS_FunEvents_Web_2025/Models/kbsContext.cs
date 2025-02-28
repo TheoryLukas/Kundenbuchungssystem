@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using KBS_FunEvents_Web_2025.ViewModels;
 
 namespace KBS_Web.Models;
 
@@ -81,4 +82,6 @@ public partial class kbsContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+public DbSet<KBS_FunEvents_Web_2025.ViewModels.LoginModelView> LoginModelView { get; set; } = default!;
 }

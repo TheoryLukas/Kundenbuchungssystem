@@ -1,0 +1,34 @@
+﻿@model KBS_FunEvents_Web_2025.ViewModels.LoginModelView
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Anmeldebereich</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="kdEmail" class="control-label"></label>
+                <input asp-for="kdEmail" class="form-control" />
+                <span asp-validation-for="kdEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kdPwHash" class="control-label"></label>
+                <input asp-for="kdPwHash" class="form-control" />
+                <span asp-validation-for="kdPwHash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Einloggen" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Zurück zur Startseite</a>
+</div>
+
