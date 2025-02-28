@@ -21,5 +21,10 @@ namespace KBS_FunEvents_Web_2025.Controllers
             
             return View("Views/Events/Events.cshtml", events);
         }
+
+        public ActionResult Details(int eventId)
+        {
+            return View("Views/Events/EventDaten.cshtml");
+        }
     }
 }

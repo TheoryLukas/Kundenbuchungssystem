@@ -23,7 +23,7 @@
                     <td>@tblEvent.EtBezeichnung</td>
                     <td>@tblEvent.EkEvKategorie.EkKatBezeichnung</td>
                     <td>@tblEvent.EvEvVeranstalter.EvFirma</td>
-                    <td><a href="">Details zum Eventbezeichnung</a></td>
+                    <td><a asp-area="" asp-controller="Events" asp-action="Details" asp-route-eventId="@tblEvent.EtEventId">Details zum Eventbezeichnung</a></td>
                 </tr>
             }
         </tbody>
