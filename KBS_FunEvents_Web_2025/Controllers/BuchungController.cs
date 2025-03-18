@@ -16,6 +16,7 @@ namespace KBS_FunEvents_Web_2025.Controllers
         }
         public IActionResult Details()
         {
+            
             return View("Details");
         }
     }
