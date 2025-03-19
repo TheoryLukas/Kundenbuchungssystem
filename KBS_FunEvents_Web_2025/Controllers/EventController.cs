@@ -5,18 +5,18 @@ using KBS_Web.Models;
 
 namespace KBS_FunEvents_Web_2025.Controllers
 {
-    public class BuchungController : Controller
+    public class EventController : Controller
     {
 
         private readonly kbsContext _dbContext;
 
-        public BuchungController(kbsContext DbContext)
+        public EventController(kbsContext dbContext)
         {
-            _dbContext = DbContext;
+            _dbContext = dbContext;
         }
+
         public IActionResult Details()
         {
-            
             return View("Details");
         }
     }
