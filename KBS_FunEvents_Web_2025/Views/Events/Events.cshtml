@@ -1,5 +1,5 @@
-﻿@using KBS_Web.Models
-@model List<TblEvent>
+﻿@using KBS_FunEvents_Web_2025.ViewModels;
+@model List<EventModelView>
 @{
     ViewData["Title"] = "Events";
 }
@@ -17,13 +17,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(TblEvent tblEvent in Model)
+            @foreach(EventModelView eventModelView in Model)
             {
                 <tr>
-                    <td>@tblEvent.EtBezeichnung</td>
-                    <td>@tblEvent.EkEvKategorie.EkKatBezeichnung</td>
-                    <td>@tblEvent.EvEvVeranstalter.EvFirma</td>
-                    <td><a asp-area="" asp-controller="Events" asp-action="Details" asp-route-eventId="@tblEvent.EtEventId">Details zum Eventbezeichnung</a></td>
+                    <td>@eventModelView.EtBeschreibung</td>
+                    <td>@eventModelView.EkEvKategorie</td>
+                    <td>@eventModelView.EvEvVeranstalter</td>
+                    <td><a asp-area="" asp-controller="Events" asp-action="Details" asp-route-eventId="@eventModelView.EtEventId">Details zum Eventbezeichnung</a></td>
                 </tr>
             }
         </tbody>
