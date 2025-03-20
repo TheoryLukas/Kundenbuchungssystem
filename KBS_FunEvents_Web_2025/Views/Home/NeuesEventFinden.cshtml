@@ -1,0 +1,33 @@
+﻿@{
+}
+@using KBS_Web.Models
+@model List<TblEvent>
+@{
+    ViewData["Title"] = "NeuesEventFinden";
+}
+
+<h1>Alle Events im Überblick</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Eventbezeichnung</th>
+                <th scope="col">Eventkategorie</th>
+                <th scope="col">Veranstalter</th>
+                <th scope="col">Termine</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TblEvent tblEvent in Model)
+            {
+                <tr>
+                    <td>@tblEvent.EtBezeichnung</td>
+                    <td>@tblEvent.EkEvKategorie.EkKatBezeichnung</td>
+                    <td>@tblEvent.EvEvVeranstalter.EvFirma</td>
+                    <td><a asp-area="" asp-controller="Home" asp-action="Eventdaten" asp-route-eventId="@tblEvent.EtEventId">Zu den Terminen</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
