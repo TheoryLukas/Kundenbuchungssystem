@@ -20,6 +20,12 @@ namespace KBS_FunEvents_Web_2025.Controllers
             return View("Views/Login/Login.cshtml");
         }
 
+        [HttpGet]
+        public IActionResult Home()
+        {
+            return View("Views/Home/Index.cshtml");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginModelView login)
         {
