@@ -1,3 +1,4 @@
+using KBS_FunEvents_Web_2025.ViewModels;
 using KBS_Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,14 +13,39 @@ namespace KBS_FunEvents_Web_2025.Controllers
             _dbContext = dbContext;
         }
 
+        private List<EventModelView> GetActiveEvents()
+        {
+            _ = _dbContext.TblEvVeranstalters.ToList();
+            _ = _dbContext.TblEvKategories.ToList();
+
+            List<int> activeEventIDs = _dbContext.TblEventDatens.ToList()
+                                        .Where(ed => ed.EdFreigegeben == true)
+                                        .DistinctBy(ed => ed.EtEventId)
+                                        .Select(ed => ed.EtEventId).ToList();
+
+            List<TblEvent> activeEvents = _dbContext.TblEvents.ToList()
+                                        .Where(ev => activeEventIDs.Contains(ev.EtEventId)).ToList();
+
+            List<EventModelView> eventModelView = [];
+
+            activeEvents.ForEach(delegate(TblEvent tblEvent)
+            {
+                eventModelView.Add(new EventModelView
+                {
+                    EtEventId = tblEvent.EtEventId,
+                    EtBeschreibung = tblEvent.EtBeschreibung,
+                    EkEvKategorie = tblEvent.EkEvKategorie.EkKatBezeichnung,
+                    EvEvVeranstalter = tblEvent.EvEvVeranstalter.EvFirma
+                });
+            });
+
+            return eventModelView;
+        }
+
         // GET: EventsController
         public ActionResult Index()
-        {
-            List<TblEvVeranstalter> veranstalter = _dbContext.TblEvVeranstalters.ToList();
-            List<TblEvKategorie> kategorien = _dbContext.TblEvKategories.ToList();
-            List<TblEvent> events = _dbContext.TblEvents.ToList();
-            
-            return View("Views/Events/Events.cshtml", events);
+        {            
+            return View("Views/Events/Events.cshtml", GetActiveEvents());
         }
 
         public ActionResult Details(int eventId)
