@@ -73,7 +73,7 @@
                 <dd class = "col-sm-6">
                     @Html.DisplayFor(model => model.EdZielort)
                 </dd>
-                </dl>
+            </dl>
     
     </dl>
         <h4>Buchungsdaten:</h4>
@@ -96,19 +96,18 @@
             </dl>
    </dl>
 
-
-
 </div>
+
 <div>
-        <dl class="col">
-            <dt class="col-sm-6">
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
+        <dl class="row">
+            <dt class="col-sm-4">
+                <a asp-action="Edit" asp-route-id="@Model?.id">Zurück zu meinen Buchungen...</a> 
             </dt>
-            <dt class="col-sm-6">
-    <a asp-action="Index">Back to List</a>
+            <dt class="col-sm-4">
+                <a asp-action="Index">Zurück zum Dashboard...</a>
             </dt>
-            <dt class="col-sm-6">
-    <div class="button"><button onclick="alert('Storniert!')">Stornieren</button></div>
+            <dt class="col-sm-4">
+                <div class="button"><button onclick="alert('Storniert!')">Buchung stornieren</button></div>
             </dt>
         </dl>
 </div>
