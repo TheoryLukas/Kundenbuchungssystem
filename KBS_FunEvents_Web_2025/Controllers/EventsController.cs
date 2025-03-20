@@ -1,4 +1,5 @@
 using KBS_Web.Models;
+using KBS_FunEvents_Web_2025.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KBS_FunEvents_Web_2025.Controllers
@@ -13,7 +14,7 @@ namespace KBS_FunEvents_Web_2025.Controllers
         }
 
         // Alle Events mit mindestens einem freigebenem EveentDaten-Eintrag
-        private List<TblEvent> GetEvents()
+        private List<ViewModels.TblEvent> GetEvents()
         {
             _ = _dbContext.TblEvVeranstalters.ToList();
             _ = _dbContext.TblEvKategories.ToList();
@@ -23,10 +24,13 @@ namespace KBS_FunEvents_Web_2025.Controllers
                                         .DistinctBy(ed => ed.EtEventId)
                                         .Select(ed => ed.EtEventId).ToList();
             
-            List<TblEvent> events = _dbContext.TblEvents.ToList()
+            List<KBS_Web.Models.TblEvent> events = _dbContext.TblEvents.ToList()
                                         .Where(ev => activeEvents.Contains(ev.EtEventId)).ToList();
 
-            return events;
+            List<ViewModels.TblEvent> viewEvents = [.. (IEnumerable<ViewModels.TblEvent>)events];
+
+
+            return viewEvents;
         }
 
         // GET: EventsController
