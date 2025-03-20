@@ -1,0 +1,75 @@
+﻿@model KBS_FunEvents_Web_2025.Models.ViewModels.DetailsViewModel
+
+@{
+	ViewData["Title"] = "Details";
+}
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event Details</title>
+    </head>
+
+    <body>
+
+	<h1>Aktuelle Termine</h1>
+	<div>
+		<hr />
+		<dl class="row">
+
+
+			<dt class="col-sm-1">
+				@Html.DisplayNameFor(model => model.EtBezeichnung)
+			</dt>
+
+			<dd class="col-sm-1">
+				@Html.DisplayFor(model => model.EtBezeichnung)
+			</dd>
+
+
+			<dt class="col-sm-1">
+				@Html.DisplayNameFor(model => model.EdBeginn)
+			</dt>
+
+			<dd class="col-sm-1">
+				@Html.DisplayFor(model => model.EdBeginn)
+			</dd>
+
+
+			<dt class="col-sm-1">
+					@Html.DisplayNameFor(model => model.EdStartOrt)
+			</dt>
+
+			<dd class="col-sm-1">
+					@Html.DisplayFor(model => model.EdStartOrt)
+			</dd>
+
+
+			<dt class="col-sm-1">
+				@Html.DisplayNameFor(model => model.EdPreis)
+			</dt>
+
+			<dd class="col-sm-1">
+				@Html.DisplayFor(model => model.EdPreis)
+			</dd>
+
+			@* AktTeilnehmer noch aendern fuer Freie Plaetze *@
+			<dt class="col-sm-1">
+				@Html.DisplayNameFor(model => model.EdAktTeilnehmer)
+			</dt>
+
+			<dd class="col-sm-1">
+				@Html.DisplayFor(model => model.EdAktTeilnehmer)
+			</dd>
+
+
+			<dd class="col-sm-1">
+				<strong>Freie Plätze</strong>
+		</dl>
+		<hr />
+		<hr />
+	</div>
+
+    </body>
+</html>

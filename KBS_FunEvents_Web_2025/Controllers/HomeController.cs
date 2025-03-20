@@ -20,6 +20,8 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
+        ViewBag.kundenId = HttpContext.Session.GetInt32("KundenID");
+        ViewBag.email = HttpContext.Session.GetString("Email");
         return View();
     }
 
