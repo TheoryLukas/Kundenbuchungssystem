@@ -398,3 +398,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/KBS_FunEvents_Web_2025/Views/Buchung/Aktiv.cshtml
