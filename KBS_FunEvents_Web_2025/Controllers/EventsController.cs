@@ -33,7 +33,7 @@ namespace KBS_FunEvents_Web_2025.Controllers
                 eventModelView.Add(new EventModelView
                 {
                     EtEventId = tblEvent.EtEventId,
-                    EtBeschreibung = tblEvent.EtBeschreibung,
+                    EtBezeichnung = tblEvent.EtBezeichnung,
                     EkEvKategorie = tblEvent.EkEvKategorie.EkKatBezeichnung,
                     EvEvVeranstalter = tblEvent.EvEvVeranstalter.EvFirma
                 });
