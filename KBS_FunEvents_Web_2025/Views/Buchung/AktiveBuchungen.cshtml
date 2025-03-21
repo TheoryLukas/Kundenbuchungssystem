@@ -1,0 +1,50 @@
+﻿@model KBS_FunEvents_Web_2025.Models.ViewModels.AktiveBuchungenViewModel
+
+@{
+    ViewData["Title"] = "AktiveBuchungen";
+}
+
+<h1>AktiveBuchungen</h1>
+
+<h4>AktiveBuchungenViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AktiveBuchungen">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EtBezeichnung" class="control-label"></label>
+                <input asp-for="EtBezeichnung" class="form-control" />
+                <span asp-validation-for="EtBezeichnung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EdBeginn" class="control-label"></label>
+                <input asp-for="EdBeginn" class="form-control" />
+                <span asp-validation-for="EdBeginn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EdStartOrt" class="control-label"></label>
+                <input asp-for="EdStartOrt" class="form-control" />
+                <span asp-validation-for="EdStartOrt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gebuchtePlaetze" class="control-label"></label>
+                <input asp-for="gebuchtePlaetze" class="form-control" />
+                <span asp-validation-for="gebuchtePlaetze" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EdAktTeilnehmer" class="control-label"></label>
+                <input asp-for="EdAktTeilnehmer" class="form-control" />
+                <span asp-validation-for="EdAktTeilnehmer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

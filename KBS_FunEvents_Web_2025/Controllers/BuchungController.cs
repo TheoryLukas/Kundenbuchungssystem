@@ -42,8 +42,13 @@ namespace KBS_FunEvents_Web_2025.Controllers
             {
                 return new StatusCodeResult(403);
             }
-            
+        }
+        public IActionResult AktiveBuchungen()
+        {
+            DetailsViewModel m = new DetailsViewModel();
 
+
+            return View();
         }
     }
 }
