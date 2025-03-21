@@ -15,27 +15,35 @@ namespace KBS_FunEvents_Web_2025.Controllers
         {
             _dbContext = DbContext;
         }
-        public IActionResult Details(int? edId)
+        public IActionResult Details(int? edId, int? kuId)
         {
-            DetailsViewModel m = new DetailsViewModel();
-            var events = _dbContext.TblEvents.Include(t => t.EkEvKategorie).Include(t => t.EvEvVeranstalter).ToList();
-            var ev = events.FirstOrDefault(e => e.EtEventId == edId);
-            var ed = _dbContext.TblEventDatens.FirstOrDefault(e => e.EdEvDatenId == edId);
+            if (HttpContext.Session.GetInt32("KundenId") != null) {
+                DetailsViewModel m = new DetailsViewModel();
+                var events = _dbContext.TblEvents.Include(t => t.EkEvKategorie).Include(t => t.EvEvVeranstalter).ToList();
+                var ev = events.FirstOrDefault(e => e.EtEventId == edId);
+                var ed = _dbContext.TblEventDatens.FirstOrDefault(e => e.EdEvDatenId == edId);
 
-            m.EtBezeichnung = ev.EtBezeichnung;
-            m.EtBeschreibung = ev.EtBeschreibung;
+                m.EtBezeichnung = ev.EtBezeichnung;
+                m.EtBeschreibung = ev.EtBeschreibung;
 
-            m.EvFirma = ev.EvEvVeranstalter.EvFirma;
-            m.EkKatBezeichnung = ev.EkEvKategorie.EkKatBezeichnung;
+                m.EvFirma = ev.EvEvVeranstalter.EvFirma;
+                m.EkKatBezeichnung = ev.EkEvKategorie.EkKatBezeichnung;
 
-            m.EdBeginn = ed.EdBeginn;
-            m.EdEnde = ed.EdEnde;
-            m.EdStartOrt = ed.EdStartOrt;
-            m.EdZielort = ed.EdZielort;
-            m.EdAktTeilnehmer = ed.EdAktTeilnehmer;
-            m.EdPreis = ed.EdPreis;
+                m.EdBeginn = ed.EdBeginn;
+                m.EdEnde = ed.EdEnde;
+                m.EdStartOrt = ed.EdStartOrt;
+                m.EdZielort = ed.EdZielort;
+                m.EdAktTeilnehmer = ed.EdAktTeilnehmer;
+                m.EdPreis = ed.EdPreis;
 
-            return View(m);
+                return View(m);
+            }
+            else
+            {
+                return new StatusCodeResult(403);
+            }
+            
+
         }
     }
 }
