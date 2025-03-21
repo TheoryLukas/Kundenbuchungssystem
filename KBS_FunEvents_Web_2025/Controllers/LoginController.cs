@@ -20,6 +20,18 @@ namespace KBS_FunEvents_Web_2025.Controllers
             return View("Views/Login/Login.cshtml");
         }
 
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View("Views/Login/Login.cshtml");
+        }
+
+        [HttpGet]
+        public IActionResult Home()
+        {
+            return View("Views/Home/Index.cshtml");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginModelView login)
         {
@@ -33,10 +45,14 @@ namespace KBS_FunEvents_Web_2025.Controllers
                     HttpContext.Session.SetInt32("KundenID", customer.KdKundenId);
                     HttpContext.Session.SetString("Email", customer.KdEmail);
                     return RedirectToAction(controllerName: "Home", actionName: "Privacy");
+                } else
+                {
+                    ModelState.AddModelError("kdPwHash", "E-Mail oder Passwort falsch!");
+                    ModelState.AddModelError("kdEmail", "E-Mail oder Passwort falsch!");
                 }
 
             }
-            return RedirectToAction();
+            return Index();
         }
     }
 }
