@@ -46,3 +46,16 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+boxing {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: inherit !important;
+    height: 50vh;
+    background-color: #f4f4f4;
+    margin-left: inherit !important;
+    margin-right: inherit !important;
+    padding-bottom: inherit !important;
+    margin-bottom: 100px;
+}
