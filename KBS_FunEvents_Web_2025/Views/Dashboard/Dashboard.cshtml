@@ -1,0 +1,108 @@
+﻿@model KBS_FunEvents_Web_2025.ViewModels.DashboardModelView
+@{
+    ViewData["Title"] = "Kundenbereich";
+    Layout = "_Layout-Kundenbereich";
+}
+<div style="max-width: 2560px;">
+    <div class="boxing" style="padding-bottom: inherit !important; margin-bottom: 100px;">
+        <div class="container" style="margin-left: -600px">
+            <hr>
+            <div class="container">
+                <h1>Dashboard</h1>
+                <h2>Hallo @ViewBag.Kunde</h2>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="box-container" style="box-sizing: inherit;">
+                <div class="box">
+                    <h3>Anzahl durchgeführte Events:</h3>
+                    <hr>
+                    <center><h6>@ViewBag.DoneEvents</h6></center>
+                </div>
+                <div class="box">
+                    <h3>Anzahl aktive Buchungen:</h3>
+                    <hr>
+                        <center><h6>@ViewBag.ActiveBookings</h6></center>
+                </div>
+                <div class="box">
+                    <h3>Anzahl stornierte Events:</h3>
+                    <hr>
+                        <center><h6>@ViewBag.StornierteBuchungen</h6></center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box-container">
+            <div class="box">
+                    <h3>Ihr Event am @Model.ed_Beginn</h3>
+                <h5>@Model.et_Bezeichnung</h5>
+                    <p>@Model.et_Beschreibung</p>
+                <a href="Index">Zu den Details...</a>
+            </div>
+            <div class="box">
+                <h3>Event suchen</h3>
+                <h5>Weiteres Abenteuer starten</h5>
+                <p>Ihr nächstes Event wartet bereits auf Sie! Sehen Sie sich die aktuellen Veranstaltungen an und starten Sie ein neues Abenteuer.</p>
+                <a href="Index">Zu den Events...</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    container {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        align-items: inherit !important;
+        height: 50vh;
+        background-color: #f4f4f4;
+        margin-left: inherit !important;
+        margin-right: inherit !important;
+    }
+
+    .container-sm {
+        width: 100%;
+        padding-right: var(--bs-gutter-x, 0.75rem);
+        padding-left: var(--bs-gutter-x, 0.75rem);
+        margin-right: inherit;
+        margin-left: inherit;
+    }
+
+
+    h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #333;
+        background-image: linear-gradient(to right, #ccc, #333, #ccc);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .box-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .box {
+        width: 40%;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding-bottom: 20px;
+        box-sizing: inherit;
+    }
+</style>
