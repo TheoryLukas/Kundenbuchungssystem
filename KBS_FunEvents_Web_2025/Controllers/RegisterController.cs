@@ -21,6 +21,12 @@ namespace KBS_FunEvents_Web_2025.Controllers
             return View("Views/Register/Register.cshtml");
         }
 
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View("Views/Register/Register.cshtml");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModelView register)
         {
@@ -57,16 +63,17 @@ namespace KBS_FunEvents_Web_2025.Controllers
                     _dbContext.TblKundens.Add(customer);
                     _dbContext.SaveChanges();
 
-                    return RedirectToPage("Views/Login/Login.cshtml");
+                    return RedirectToAction("Index","Login");
                 } else
                 {
-               
+
+                    ModelState.AddModelError("kdEmail", "Account existiert bereits");
                     TempData["error"] = "Account existiert bereits";
-                    return View("Views/Register/Register.cshtml");
+                    return Index();
                 }
 
             }
-            return View("Views/Register/Register.cshtml");
+            return Index();
         }
 
     }

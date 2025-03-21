@@ -52,7 +52,6 @@
                 <input asp-for="kdEmail" class="form-control" />
                 <span asp-validation-for="kdEmail" class="text-danger"></span>
                 @if(TempData["error"]!=null){
-                       <b style="color: red">KBS-Web Benutzerkonto bereits vorhanden.</b>
                        <p>Verwenden Sie diesen <a asp-controller="Login" asp-action="Index">Link</a> um zum Login zu gelangen.</p>
                 }
             </div>
