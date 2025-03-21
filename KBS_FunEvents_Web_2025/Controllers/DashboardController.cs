@@ -13,6 +13,8 @@ namespace KBS_FunEvents_Web_2025.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetInt32("KundenID") == null) return RedirectToAction("Index", "Home");
+
             var K = getKunde();
             ViewBag.Kunde = K.KdVorname;
             DashboardModelView DashboardView = new DashboardModelView();
@@ -40,11 +42,6 @@ namespace KBS_FunEvents_Web_2025.Controllers
         {
             _ = _dbContext.TblKundens.ToList();
             int? kId = HttpContext.Session.GetInt32("KundenID");
-
-            //if (kId == null)
-            //{
-            //    return NotFound();
-            //}
 
             TblKunden Kunde = _dbContext.TblKundens.ToList().Where(k => k.KdKundenId == kId).First();
 
