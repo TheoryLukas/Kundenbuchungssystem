@@ -1,0 +1,31 @@
+﻿@using KBS_FunEvents_Web_2025.ViewModels;
+@model List<EventModelView>
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1>Aktuelle Events im Angebot</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Eventbezeichnung</th>
+                <th scope="col">Eventkategorie</th>
+                <th scope="col">Veranstalter</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(EventModelView eventModelView in Model)
+            {
+                <tr>
+                    <td>@eventModelView.EtBezeichnung</td>
+                    <td>@eventModelView.EkEvKategorie</td>
+                    <td>@eventModelView.EvEvVeranstalter</td>
+                    <td><a asp-area="" asp-controller="Events" asp-action="Details" asp-route-eventId="@eventModelView.EtEventId">Details zum Eventbezeichnung</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
