@@ -20,7 +20,7 @@
             @foreach(EventModelView eventModelView in Model)
             {
                 <tr>
-                    <td>@eventModelView.EtBeschreibung</td>
+                    <td>@eventModelView.EtBezeichnung</td>
                     <td>@eventModelView.EkEvKategorie</td>
                     <td>@eventModelView.EvEvVeranstalter</td>
                     <td><a asp-area="" asp-controller="Events" asp-action="Details" asp-route-eventId="@eventModelView.EtEventId">Details zum Eventbezeichnung</a></td>
